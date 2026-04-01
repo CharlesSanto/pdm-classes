@@ -7,12 +7,16 @@ import DespesaRecente from './screens/DespesaRecentes'
 import TodasDespesa from './screens/TodasDespesas'
 import { Ionicons } from '@expo/vector-icons';
 import IconButton from './components/IconButton';
+import {useNavigation} from '@react-navigation/native';
 
 export default function App() {
 
 const Tab = createBottomTabNavigator()
 
 function BottomTabScreen() {
+
+  const navigation = useNavigation();
+
   return (
     <Tab.Navigator screenOptions={{ headerRight: () => <IconButton icon="add" size={24} onPress={() => {navigation.navigate('GerenciarDespesa')}} />}}>
       <Tab.Screen name="DespesaRecentes" component={ DespesaRecente } 
